@@ -4,6 +4,21 @@ Creating a type is done by the [`Type` function](./functions#type.md).
 
 ## Primary datatypes
 
+### Text
+
+```js
+// Definition
+Type(Text)
+// Options
+Type(
+  Text,
+  Min(2), // character length min
+)
+
+// Instantiation
+Text("Hello there")
+```
+
 ### Number
 
 ```js
@@ -72,11 +87,11 @@ Type(
 )
 
 Array(
-  Character('H'),
-  Character('E'),
-  Character('L'),
-  Character('L'),
-  Character('O')
+  Number(1),
+  Number(2),
+  Number(3),
+  Number(4),
+  Number(5)
 )
 ```
 
