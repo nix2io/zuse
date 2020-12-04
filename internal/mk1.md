@@ -8,7 +8,7 @@ Set(
   Text("sayHello"),
   Function(
     // input arguments
-    Input(
+    Argument(
       Text("name"),
       Type(Text),
     ),
@@ -27,6 +27,43 @@ Set(
     )
   )
 )
+
+// represented internally something like this
+
+{
+  "type": "set",
+  "variableName": {
+    "type": "text",
+    "value": "sayHello"
+  },
+  "arguments": [
+    {
+      "type": "argument",
+      "name": {
+        "type": "text",
+        "value": "name"
+      },
+      // improve this type
+      "type": {
+        "type": "type",
+        "typeName": "text"
+      }
+    }
+  ],
+  "code": {
+    "type": "code",
+    "code": [
+      {
+        "type": "return",
+        "returnValue": {
+          "type": "concat",
+          
+        }
+      }
+    ]
+  }
+}
+
 ```
 This is the equivilent of 
 ```ts
