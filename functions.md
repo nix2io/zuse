@@ -9,4 +9,3 @@ The `Type` function creates a datetype to be used by function inputs that requir
 ```js
 Type(Number)
 ```
-
