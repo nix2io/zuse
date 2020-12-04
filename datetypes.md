@@ -2,7 +2,7 @@
 
 Creating a type is done by the [`Type` function](./functions#type.md).
 
-## Primary data
+## Primary datatypes
 
 ### Number
 
@@ -54,7 +54,7 @@ I'm not sure how I want to handle null or undefined, if they are going to be the
 Null()
 ```
 
-## Datetype Modifiers (Generics)
+## Other types
 
 ### Array
 
@@ -80,3 +80,17 @@ Array(
 )
 ```
 
+### Function
+
+```js
+
+Function(
+  Text("sayHello"), // text of the func name
+  Type(None),       // input type
+  Type(None),       // return type
+  Print(
+    Text("Hello There")
+  )
+)
+
+```
