@@ -15,11 +15,13 @@ Set(
     // return type
     Type(Text),
     // code
-    Return(
-      Concat(
-        Text("Hello "),
-        Var(
-          Text("name")
+    Code(
+      Return(
+        Concat(
+          Text("Hello "),
+          Var(
+            Text("name")
+          )
         )
       )
     )
