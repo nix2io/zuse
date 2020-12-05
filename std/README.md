@@ -1,5 +1,5 @@
 # Standard Library
-[*← go back to the main page*](../README.md)
+[*← go back to the main page*](..)
 
 This contains specification for the standard library of functions.
 
