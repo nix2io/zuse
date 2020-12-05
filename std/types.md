@@ -1,4 +1,5 @@
 # Standard Types
+[*← go back to the std page*](../README.md)
 
 ## Primary Datatypes
 
