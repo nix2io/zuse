@@ -3,9 +3,9 @@
 
 This contains specification for the standard library of functions.
 
-## Datatypes
+## Types
 
-Read more about [datatypes](./datatypes.md)
+Read more about [types](./types.md)
 
 ## Functions
 
