@@ -5,11 +5,15 @@
   <sub>functional language representing symbols to compute the world's information</sub>
 </p>
 
-## My vision
+## The vision
 
 This is not meant to be used to write long complex programs, it should be used for small individual functions that are able to be combined to create greater functionality.
 
 I am basing this project off of the wolfram language, however my goal is to make this opensource and allow people to create their own functions to add to the codebase.
+
+### The Future
+
+This will be the bases for future Nix2 projects that can dynamically generate Zuse code. 
 
 ## Internal Structure
 
