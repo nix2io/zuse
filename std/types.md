@@ -14,6 +14,8 @@ You are not able to instantiate this type but you can use it as a type for argum
 
 ### Text
 
+- Parent: [Any](#any)
+
 Strings in Zuse are represented as Text but are treated the same.
 
 #### Arguments
@@ -36,6 +38,8 @@ Strings in Zuse are represented as Text but are treated the same.
 ----
 
 ### Number
+
+- Parent: [Any](#any)
 
 Integers and floats are represented as Numbers in Zuse and can be converted for specifc language interaction.
 
@@ -66,6 +70,8 @@ I will have more types of numbers
 
 ### Boolean
 
+- Parent: [Any](#any)
+
 Strait forward.
 
 #### Arguments
@@ -85,7 +91,11 @@ Strait forward.
 ]
 ```
 
+----
+
 ### Null
+
+- Parent: [Any](#any)
 
 `null`, `None`, & `undefined` should all be represented as `Null` in Zuse.
 
@@ -105,6 +115,8 @@ Strait forward.
 ## Secondary Data Types
 
 ### Array
+
+- Parent: [Any](#any)
 
 To represent an `array` or `list` use an `Array`.
 This is one of the types that requires an element type, which depends on other types.
@@ -139,6 +151,188 @@ This is one of the types that requires an element type, which depends on other t
 ]
 ```
 
-### Dictionary
+----
+
+### Object
+
+- Parent: [Any](#any)
+
+Zuse uses objects to represent key:value pairs.
+
+All keys are represented as `Text`.
+
+#### Arguments
+
+| Name    | Type               | Description              | Default      |
+|---------|--------------------|--------------------------|--------------|
+| `value` | `object` or `dict` | The value of the object  | `{}`         |
+
+#### Example
+
+```json5
+[
+  "Object",
+  {
+    "value": {
+      "foo": [
+        "Text",
+        {
+          "value": "bar"
+        }
+      ]
+    }
+  }
+]
+```
+
+This would be the same as:
+
+```json5
+{
+  "foo": "bar"
+}
+```
+
+----
 
 ### Set
+
+- Parent: [Array](#array)
+
+A set is an array that can not contain duplicate elements.
+The `Set` inherits the same attributes as Array.
+
+The difference is that certain functions like [`Push`](./functions#push) or [`Add`](./functions#add) work differently because they will check for duplicate elements.
+
+----
+
+### Character
+
+- Parent: [Text](#text)
+
+A character is a single unicode character.
+
+It inherits all the same properties as Text but can only be a single character therefore a lot of Text functions will not work with `Character`.
+
+#### Arguments
+
+| Name    | Type              | Description                |
+|---------|-------------------|----------------------------|
+| `value` | `string`, `char`  | The value of the character |
+
+#### Example
+
+```json5
+[
+  "Character",
+  {
+    "value": "A"
+  }
+]
+```
+
+----
+
+### Function
+
+Every non standard function is of type `Function`.
+
+Every function is anonymous and needs to be declared in order to be called when in runtime.
+
+#### Arguments
+
+| Name         | Type                                       | Description                     | Default |
+|--------------|--------------------------------------------|---------------------------------|---------|
+| `arguments`  | [`Array`](#array)<[`Argument`](#argument)> | An array of arugments           | `[]`    |
+| `returnType` | [`Any`](#any)                              | The return type of the function |         |
+| `logic`      | Function                                   | The code to execute when called |         |
+
+> **_NOTE_**  Not sure if I want to use the word `logic` to represent the code to execute.
+
+> **_NOTE_**  Not sure how I want to make the Type for the logic
+
+#### Example
+
+```json5
+// create a function to square a given number
+[
+  "Function",
+  {
+    "arguments": [
+      "Array",
+      {
+        "value": [
+          [
+            "Argument",
+            {
+              "name": [
+                "Text",
+                {
+                  "value": "numb"
+                }
+              ],
+              "type": [
+                "Type",
+                {
+                  "typeName": "Number"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "returnType": [
+      "Type",
+      {
+        "typeName": "Number"
+      }
+    ],
+    "logic": [
+      "Return",
+      {
+        "value": [
+          "Multiply",
+          {
+            "value_left": [
+              "Var",
+              {
+                "name": [
+                  "Text",
+                  {
+                    "value": "numb"
+                  }
+                ]
+              }
+            ],
+            "value_right": [
+              "Var",
+              {
+                "name": [
+                  "Text",
+                  {
+                    "value": "numb"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+In Typescript, the equivilent would be.
+
+```typescript
+(numb: number): number => number * number;
+```
+
+or Python *(however, python does not support types)*
+```py
+lambda numb: numb * numb;
+```
+
+----
