@@ -4,7 +4,7 @@ This contains specification for the standard library of functions.
 
 ## Datatypes
 
-Read more about [datatypes](./datetypes.md)
+Read more about [datatypes](./datatypes.md)
 
 ## Functions
 
