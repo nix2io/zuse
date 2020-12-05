@@ -60,3 +60,127 @@ If the function takes no arguments, you still need to include the function argum
 ]
 ```
 
+#### Simple Weather Example
+
+```json5
+[
+  // set variable function
+  "Set",
+  {
+    // name of the variable to a "GetWeather"
+    "name": [
+      "Text",
+      {
+        "value": "GetWeather"
+      }
+    ],
+    // set the value of GetWeather to a function
+    "value": [
+      "Function",
+      {
+        // arguments of the function
+        "arguments": [
+          // array type
+          "Array",
+          {
+            "value": [
+              // create the first argument
+              [
+                "Argument",
+                {
+                  // set the name of the arg to "zipCode"
+                  "name": [
+                    "Text",
+                    {
+                      "value": "zipCode"
+                    }
+                  ],
+                  // set the type to a Zip
+                  // the zip is not a listed type
+                  "type": [
+                    "Type",
+                    {
+                      "type": [
+                        "Text",
+                        {
+                          "value": "Zip"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        ],
+        // set the return type to a WeatherResponse
+        "returnType": [
+          "Type",
+          {
+            "type": [
+              "Text",
+              {
+                "value": "WeatherResponse"
+              }
+            ]
+          }
+        ],
+        // set the logic of the function
+        "logic": [
+          // return statement
+          "Return",
+          {
+            "logic": [
+              // return a WeatherResponse
+              "WeatherResponse",
+              {
+                "response": [
+                  // parse JSON
+                  "ParseJSON",
+                  {
+                    "json": [
+                      // json from a HTTP request
+                      "HTTPGet",
+                      {
+                        // url of the request
+                        "url": [
+                          // use a string template
+                          "TemplateLiteral",
+                          {
+                            // url of the weather service
+                            "template": [
+                              "Text",
+                              {
+                                "value": "http://wttr.in/%s?format=j1"
+                              }
+                            ],
+                            // template args
+                            // this just fills in the "%s"
+                            "arguments": [
+                              "Array",
+                              {
+                                "value": [
+                                  [
+                                    "Var",
+                                    {
+                                      "name": "zipCode"
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+```
