@@ -1,5 +1,9 @@
-# Zuse Lang Specification
-The Zuse Language is a functional language representing symbols to compute the world's information.
+<p align="center"><img height="220px" src="https://www.kerryr.net/images/pioneers/gallery/zuse_logo_lg.jpg" alt="Logo" /><p>
+
+<p align="center">
+  <strong>Zuse Language Specification</strong><br />
+  <sub>functional language representing symbols to compute the world's information</sub>
+</p>
 
 ## My vision
 
