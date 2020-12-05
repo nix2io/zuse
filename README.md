@@ -7,6 +7,10 @@ This is not meant to be used to write long complex programs, it should be used f
 
 I am basing this project off of the wolfram language, however my goal is to make this opensource and allow people to create their own functions to add to the codebase.
 
+## Internal Structure
+
+The internal structure that interpreters use can be found [here](./internal_structure.md)
+
 ## Standard Library
 
 The standard library of builtin functions is [here](./std/)
