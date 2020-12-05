@@ -1,5 +1,5 @@
 # Standard Library
-[*← go back to the main page*](..)
+[*← go back to the main page*](https://github.com/nix2io/zuse)
 
 This contains specification for the standard library of functions.
 
