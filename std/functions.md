@@ -257,15 +257,15 @@ Here is an example for iterating over an object.
 
 The for loop is based on the python for loop.
 
-The for loop works like this:
+The function arguments work like this
 
-If given **one** argument. 
+If given **one** argument:
 
 |         | Object | List  |
 |---------|--------|-------|
 | 1st Arg | Value  | Value |
 
-If given **two** arguments.
+If given **two** arguments:
 
 |         | Object | List  |
 |---------|--------|-------|
