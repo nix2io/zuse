@@ -1,7 +1,7 @@
 <p align="center"><img height="220px" src="https://www.kerryr.net/images/pioneers/gallery/zuse_logo_lg.jpg" alt="Logo" /><p>
 
 <p align="center">
-  <strong>Zuse Language Specification</strong><br />
+  <strong>The Zuse Language</strong><br />
   <sub>functional language representing symbols to compute the world's information</sub>
 </p>
 
@@ -14,6 +14,10 @@ I am basing this project off of the wolfram language, however my goal is to make
 ### The Future
 
 This will be the bases for future Nix2 projects that can dynamically generate Zuse code. 
+
+## Documentation
+
+The documentation is on this repo's [wiki](https://github.com/nix2io/zuse/wiki).
 
 ## Internal Structure
 
