@@ -255,6 +255,14 @@ Here is an example for iterating over an object.
 
 > **_NOTE_**  This very simple example is very long and it would be nice to be able to shorten it.
 
+The for loop works like this:
+
+1. You give it the items you want iterate over, this can be an array or object.
+2. You give it the function you want to execute when it runs
+  1. The function must take in at least one argument
+  2. If there is one argument, then the argument will receive the value from the array or object
+  3. If there are two arguments, then the first will receive the key in the case of the object, or the number in the list number of the index, and the second arg will be the value.
+
 ```json5
 [
   "For",
