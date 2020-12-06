@@ -15,10 +15,6 @@ I am basing this project off of the wolfram language, however my goal is to make
 
 This will be the bases for future Nix2 projects that can dynamically generate Zuse code. 
 
-## Documentation
-
-The documentation is on this repo's [wiki](https://github.com/nix2io/zuse/wiki).
-
 ## Internal Structure
 
 The internal structure that interpreters use can be found [here](./internal_structure.md)
