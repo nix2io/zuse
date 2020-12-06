@@ -253,6 +253,8 @@ The for operator allows you to iterate over things.
 
 Here is an example for iterating over an object. 
 
+> **_NOTE_**  This very simple example is very long and it would be nice to be able to shorten it.
+
 ```json5
 [
   "For",
@@ -290,7 +292,42 @@ Here is an example for iterating over an object.
                     "name": [
                       "Text",
                       {
-                        "value": ""
+                        "value": "key"
+                      }
+                    ],
+                    "type": [
+                      "Type",
+                      {
+                        "typeName": [
+                          "Text",
+                          {
+                            "value": "Text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              ],
+              [
+                "Argument",
+                [
+                  {
+                    "name": [
+                      "Text",
+                      {
+                        "value": "value"
+                      }
+                    ],
+                    "type": [
+                      "Type",
+                      {
+                        "typeName": [
+                          "Text",
+                          {
+                            "value": "Text"
+                          }
+                        ]
                       }
                     ]
                   }
@@ -298,9 +335,93 @@ Here is an example for iterating over an object.
               ]
             ]
           }
+        ],
+        "logic": [
+          "Log",
+          {
+            "value": [
+              "Add",
+              {
+                "values": [
+                  "Array",
+                  {
+                    "value": [
+                      [
+                        "Var",
+                        {
+                          "name": [
+                            "Text",
+                            {
+                              "value": "key"
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        "Text",
+                        {
+                          "value": " is set to "
+                        }
+                      ],
+                      [
+                        "Var",
+                        {
+                          "name": [
+                            "Text",
+                            {
+                              "value": "key"
+                            }
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
         ]
       }
     ]
   }
 ]
+```
+
+Future syntax:
+
+```js
+For(
+  Object(
+    {
+      "foo": Text("bar"),
+      "key": Text("pair")
+    }
+  ),
+  Function(
+    Array(
+      Argument(
+        Text("key"),
+        Type(Text)
+      ),
+      Argument(
+        Text("value"),
+        Type(Text)
+      )
+    )
+    Type(
+      Null()
+    ),
+    Log(
+      Add(
+        Var(
+          Text("key")
+        ),
+        Text(" is set to "),
+        Var(
+          Text("value")
+        )
+      )
+    )
+  )
+)
 ```
