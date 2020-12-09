@@ -1,0 +1,27 @@
+// Copyright Zuse Authors
+[
+  "Function",
+  {
+    "description": "Represent text",
+    "arguments": [
+        [
+            "Argument",
+            {
+                "name": "value",
+                "type": [
+                    "Type",
+                    {
+                        "typeName": "_string"
+                    }
+                ]
+            }
+        ]
+    ],
+    "returnType": [
+        "Type",
+        {
+            "typeName": "Text"
+        }
+    ]
+  }
+]
