@@ -1,0 +1,35 @@
+// © Zuse Authors 2020
+// Let Function
+[
+    "Function",
+    {
+        "description": "Define a variable",
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "name",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Text"
+                        }
+                    ]
+                }
+            ],
+            [
+                "Argument",
+                {
+                    "name": "value",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Any"
+                        }
+                    ]
+                }
+            ]
+        ],
+        "returnType": "Boolean"
+    }
+]

@@ -1,0 +1,23 @@
+// © Zuse Authors 2020
+// Var Function
+[
+    "Function",
+    {
+        "description": "Get the value of a variable",
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "name",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Text"
+                        }
+                    ]
+                }
+            ]
+        ],
+        "returnType": "Any"
+    }
+]

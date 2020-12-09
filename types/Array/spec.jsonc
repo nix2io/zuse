@@ -1,0 +1,33 @@
+// © Zuse Authors 2020
+// Array Function
+[
+    "Function",
+    {
+        "description": "Create an array of items",
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "value",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "_array"
+                        }
+                    ]
+                }
+            ]
+        ],
+        "returnType": [
+            "ArrayOf",
+            {
+                "type": [
+                    "Type",
+                    {
+                        "typeName": "Any"
+                    }
+                ]
+            }
+        ]
+    }
+]
