@@ -1,0 +1,28 @@
+// © Zuse Authors 2020
+// Log Function
+[
+    "Function",
+    {
+        "description": "Print text to stdout",
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "value",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Any"
+                        }
+                    ]
+                }
+            ]
+        ],
+        "returnType": [
+            "Type",
+            {
+                "typeName": "Null"
+            }
+        ]
+    }
+]

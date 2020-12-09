@@ -1,0 +1,15 @@
+// © Zuse Authors 2020
+// Null Function
+[
+    "Function",
+    {
+        "description": "Represent a Null value",
+        "arguments": [],
+        "returnType": [
+            "Type",
+            {
+                "typeName": "Null"
+            }
+        ]
+    }
+]

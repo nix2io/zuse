@@ -1,0 +1,19 @@
+[
+    "Function",
+    {
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "value",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Boolean"
+                        }
+                    ]
+                }
+            ]
+        ]
+    }
+]
