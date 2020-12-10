@@ -2,7 +2,7 @@ name: Test Typescript
 on:
     pull_request:
         branches:
-            - master
+            - main
 jobs:
     ci:
         name: Typescript Test
