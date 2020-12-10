@@ -17,6 +17,10 @@ The internal structure that interpreters use can be found [here](./internal_stru
 
 The standard library of builtin functions is [here](./std/)
 
+## Supported Languages
+
+There are currently two options for Zuse interpreters, Python & Typescript.
+
 ## About
 
 ### Inspiration
