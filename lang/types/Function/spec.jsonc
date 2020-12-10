@@ -1,0 +1,113 @@
+// © Zuse Authors 2020
+// Function Function
+[
+    "Function",
+    {
+        "description": "Create an anonymous function",
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "arguments",
+                    "type": [
+                        "ArrayOf",
+                        {
+                            "type": [
+                                "Type",
+                                {
+                                    "typeName": "Argument"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            [
+                "Argument",
+                {
+                    "name": "returnType",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Any"
+                        }
+                    ]
+                }
+            ],
+            [
+                "Argument",
+                {
+                    "name": "logic",
+                    "type": [
+                        "Union",
+                        {
+                            "typeLeft": [
+                                "Type",
+                                {
+                                    "typeName": "Any"
+                                }
+                            ],
+                            "typeRight": [
+                                "Type",
+                                {
+                                    "typeName": "_function"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            [
+                "Argument",
+                {
+                    "name": "description",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Text"
+                        }
+                    ],
+                    "isNullable": true
+                }
+            ]
+        ],
+        "returnType": [
+            "Type",
+            {
+                "typeName": "Text"
+            }
+        ],
+        "tests": [
+            [
+                "Test",
+                {
+                    "arguments": [
+                        [],
+                        "Text",
+                        [
+                            "Text",
+                            {
+                                "value": "works"
+                            }
+                        ],
+                        "func that returns 'works'"
+                    ],
+                    "returns": [
+                        "Function",
+                        {
+                            "arguments": [],
+                            "returnType": "Text",
+                            "description": "func that returns 'works'",
+                            "logic": [
+                                "Text",
+                                {
+                                    "value": "works"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        ]
+    }
+]

@@ -1,0 +1,38 @@
+// © Zuse Authors 2020
+// Text Function
+[
+    "Function",
+    {
+        "description": "Represent text",
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "value",
+                    "type": [
+                        "Type",
+                        {
+                            // use native string type input
+                            "typeName": "_string"
+                        }
+                    ]
+                }
+            ]
+        ],
+        "returnType": [
+            "Type",
+            {
+                "typeName": "Text"
+            }
+        ],
+        "tests": [
+            [
+                "Test",
+                {
+                    "arguments": ["hello world"],
+                    "returns": "hello world"
+                }
+            ]
+        ]
+    }
+]

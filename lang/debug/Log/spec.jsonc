@@ -1,0 +1,39 @@
+// © Zuse Authors 2020
+// Log Function
+[
+    "Function",
+    {
+        "description": "Print text to stdout",
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "value",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Any"
+                        }
+                    ]
+                }
+            ]
+        ],
+        "returnType": [
+            "Type",
+            {
+                "typeName": "Null"
+            }
+        ],
+        "tests": [
+            [
+                "Test",
+                {
+                    "arguments": ["Hi There"],
+                    "returns": null,
+                    // make sure the text got put into the log
+                    "inLog": "Hi There"
+                }
+            ]
+        ]
+    }
+]

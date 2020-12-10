@@ -1,0 +1,56 @@
+// © Zuse Authors 2020
+// Equals Function
+[
+    "Function",
+    {
+        "description": "If two values are equal",
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "left",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Any"
+                        }
+                    ]
+                }
+            ],
+            [
+                "Argument",
+                {
+                    "name": "right",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Any"
+                        }
+                    ]
+                }
+            ]
+        ],
+        "returnType": [
+            "Type",
+            {
+                "typeName": "Boolean"
+            }
+        ],
+        "tests": [
+            [
+                "Test",
+                {
+                    "arguments": ["foo", "foo"],
+                    "returns": true
+                }
+            ],
+            [
+                "Test",
+                {
+                    "arguments": ["foo", "bar"],
+                    "returns": false
+                }
+            ]
+        ]
+    }
+]
