@@ -364,4 +364,4 @@ dmypy.json
 
 # Zuse Specific ignore files
 
-tmp/
+tmp_logic.ts

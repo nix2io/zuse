@@ -90,7 +90,7 @@ const minify = (json: any) => {
 const ROOT_DIR = join("../../");
 const SPECIFICATION_FILE = join(ROOT_DIR, "spec.jsonc");
 const LANG_DIR = join(ROOT_DIR, "lang/");
-const TEMP_FILE = join("tmp/", "logic.ts");
+const TEMP_FILE = "tmp_logic.ts";
 
 const getLanguageSpecification = (): {
     version: number;
@@ -100,7 +100,7 @@ const getLanguageSpecification = (): {
 const getGroupFunctions = (groupName: string): string[] => {
     const GROUP_FOLDER = join(LANG_DIR, `${groupName}/`);
     const functions: string[] = [];
-    readdirSync(GROUP_FOLDER).forEach((file) => {
+    readdirSync(GROUP_FOLDER).forEach((file: string) => {
         if (lstatSync(join(GROUP_FOLDER, file)).isDirectory()) {
             functions.push(file);
         }
@@ -115,7 +115,7 @@ console.log("Building Temp file");
 // Get the language specification
 const languageSpecification = getLanguageSpecification();
 // First part of the tmp file
-let tempFileContent = `import { Context, Node, PrimativeTypes } from "../dependencies";\n`;
+let tempFileContent = `import { Context, Node, PrimativeTypes } from "./dependencies";\n`;
 
 for (const group of languageSpecification.groups) {
     const groupFunctions = getGroupFunctions(group);
@@ -134,7 +134,7 @@ for (const group of languageSpecification.groups) {
 
 writeFileSync(TEMP_FILE, tempFileContent);
 
-const logicFunctions = require("./tmp/logic");
+const logicFunctions = require("./tmp_logic");
 
 let log: string = "";
 const mockCtx = new Context(
