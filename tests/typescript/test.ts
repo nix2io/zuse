@@ -87,6 +87,7 @@ const minify = (json: any) => {
     return new_str.join("");
 };
 
+// Define some paths
 const ROOT_DIR = join("../../");
 const SPECIFICATION_FILE = join(ROOT_DIR, "spec.jsonc");
 const LANG_DIR = join(ROOT_DIR, "lang/");
@@ -98,10 +99,10 @@ const getLanguageSpecification = (): {
 } => JSON.parse(minify(readFileSync(SPECIFICATION_FILE, "utf-8")));
 
 const getGroupFunctions = (groupName: string): string[] => {
-    const GROUP_FOLDER = join(LANG_DIR, `${groupName}/`);
+    const groupFolder = join(LANG_DIR, `${groupName}/`);
     const functions: string[] = [];
-    readdirSync(GROUP_FOLDER).forEach((file: string) => {
-        if (lstatSync(join(GROUP_FOLDER, file)).isDirectory()) {
+    readdirSync(groupFolder).forEach((file: string) => {
+        if (lstatSync(join(groupFolder, file)).isDirectory()) {
             functions.push(file);
         }
     });
@@ -114,7 +115,7 @@ console.log("Building Temp file");
 
 // Get the language specification
 const languageSpecification = getLanguageSpecification();
-// First part of the tmp file
+// Create the temp file
 let tempFileContent = `import { Context, Node, PrimativeTypes } from "./dependencies";\n`;
 
 for (const group of languageSpecification.groups) {
@@ -131,9 +132,10 @@ for (const group of languageSpecification.groups) {
         }
     }
 }
-
+// Write the temp file
 writeFileSync(TEMP_FILE, tempFileContent);
 
+// Import the new temp file's functions
 const logicFunctions = require("./tmp_logic");
 
 let log: string = "";
