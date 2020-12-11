@@ -26,4 +26,6 @@ jobs:
               with:
                   python-version: "3.x"
             - run: python -m pip install pipenv
-            - run: cd ./tests/python & pipenv run test
+            - run: cd ./tests/python
+            - run: pwd
+            - run: pipenv run test
