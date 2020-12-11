@@ -29,6 +29,5 @@ jobs:
             - uses: actions/setup-python@v2
               with:
                   python-version: "3.x"
-            - run: python -m pip install pipenv
-            - run: pwd
+            - uses: dschep/install-pipenv-action@v1
             - run: pipenv run test
