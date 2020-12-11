@@ -22,10 +22,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2 # Checking out the repo
-
-            - name: CD into the py test dir
-              run: cd ./tests/python/
-
             - uses: actions/setup-python@v1
             - uses: dschep/install-pipenv-action@v1
-            - run: pipenv run test
+            - run: cd ./tests/python & pipenv run test
