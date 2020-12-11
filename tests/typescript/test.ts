@@ -165,6 +165,8 @@ describe("Typescript Functions", () => {
                     const logicFunc =
                         logicFunctions[`${funcName.toLowerCase()}_logic`];
 
+                    // ignore the test if not defined
+                    if (typeof logicFunc == "undefined") return;
                     const testSpec = funcSpec[1].tests;
 
                     if (typeof testSpec == "undefined") {
