@@ -21,7 +21,7 @@
                 "typeName": "Boolean"
             }
         ],
-        "_logic": [
+        "logic": [
             "Return",
             {
                 "value": [
