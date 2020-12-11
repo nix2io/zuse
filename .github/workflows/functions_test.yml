@@ -3,6 +3,9 @@ on:
     pull_request:
         branches:
             - main
+    push:
+        branches:
+            - main
 jobs:
     typescript:
         name: Typescript Test
@@ -25,10 +28,14 @@ jobs:
                 shell: bash
                 working-directory: tests/python
         steps:
-            - uses: actions/checkout@v2 # Checking out the repo
-            - uses: actions/setup-python@v2
+            - name: Checkout the repo
+              uses: actions/checkout@v2
+            - name: Set up python
+              uses: actions/setup-python@v2
               with:
                   python-version: "3.7"
             - uses: dschep/install-pipenv-action@v1
-            - run: pipenv install -d
-            - run: pipenv run test
+            - name: Install dependencies
+              run: pipenv install -d
+            - name: Run the test
+              run: pipenv run test
