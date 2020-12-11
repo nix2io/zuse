@@ -3,6 +3,9 @@ on:
     pull_request:
         branches:
             - main
+    push:
+        branches:
+            - main
 jobs:
     typescript:
         name: Typescript Test
@@ -20,18 +23,19 @@ jobs:
     python:
         name: Python Test
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash
+                working-directory: tests/python
         steps:
-            - uses: actions/checkout@v2 # Checking out the repo
-
-            - name: CD into the py test dir
-              run: cd ./tests/python/
-
-            - name: Install dependecies
-              uses: VaultVulp/action-pipenv@v2.0.1
+            - name: Checkout the repo
+              uses: actions/checkout@v2
+            - name: Set up python
+              uses: actions/setup-python@v2
               with:
-                  command: install -d # Install all dependencies, including development ones
-
-            - name: Test
-              uses: VaultVulp/action-pipenv@v2.0.1
-              with:
-                  command: run test
+                  python-version: "3.7"
+            - uses: dschep/install-pipenv-action@v1
+            - name: Install dependencies
+              run: pipenv install -d
+            - name: Run the test
+              run: pipenv run test
