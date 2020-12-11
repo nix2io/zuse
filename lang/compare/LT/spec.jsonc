@@ -1,0 +1,63 @@
+// © Zuse Authors 2020
+// Less than Function
+[
+    "Function",
+    {
+        "description": "If the left value is less than the right value",
+        "arguments": [
+            [
+                "Argument",
+                {
+                    "name": "left",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Number"
+                        }
+                    ]
+                }
+            ],
+            [
+                "Argument",
+                {
+                    "name": "right",
+                    "type": [
+                        "Type",
+                        {
+                            "typeName": "Number"
+                        }
+                    ]
+                }
+            ]
+        ],
+        "returnType": [
+            "Type",
+            {
+                "typeName": "Boolean"
+            }
+        ],
+        "tests": [
+            [
+                "Test",
+                {
+                    "arguments": [1, 2],
+                    "returns": true
+                }
+            ],
+            [
+                "Test",
+                {
+                    "arguments": [2, 1],
+                    "returns": false
+                }
+            ],
+            [
+                "Test",
+                {
+                    "arguments": [1, 1],
+                    "returns": false
+                }
+            ]
+        ]
+    }
+]
