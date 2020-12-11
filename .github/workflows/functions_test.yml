@@ -1,10 +1,23 @@
-name: Test Python
+name: Test Language Functions
 on:
     pull_request:
         branches:
             - main
 jobs:
-    ci:
+    typescript:
+        name: Typescript Test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+                  registry-url: https://registry.npmjs.org/
+            - name: yarn install
+              run: yarn --cwd ./tests/typescript install
+            - name: mocha tests
+              run: yarn --cwd ./tests/typescript run test
+    python:
         name: Python Test
         runs-on: ubuntu-latest
         steps:
