@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Zuse cheat sheet</h1>
+    <p>This page provides quick reference to all of the Zuse functions, group by their major functionality:</p>
+    {% for group_set in groups %}
+        <div class="group-set-{{ 'left' if loop.index == 1 else 'right' }}">
+        {% for group in group_set %}
+            <h2>{{ group.label }}</h2>
+
+        {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}
