@@ -78,8 +78,11 @@ for group in language_specification['groups']:
         func_spec_file = path.join(func_dir, 'spec.jsonc')
         func_spec = read_json_file(func_spec_file)
 
-        logic_func = logic_functions.__getattribute__(func_name.lower() + "_logic")
-        
+        # ignore tests without logic files
+        try:
+            logic_func = logic_functions.__getattribute__(func_name.lower() + "_logic")
+        except AttributeError as e:
+            continue
         test_spec = func_spec[1]['tests']
         # add the function and attributes to the params to test
         for i, (_, testAttr) in enumerate(test_spec):
