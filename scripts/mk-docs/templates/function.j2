@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<code class="text-3xl font-bold leading-tight bg-gray-200 p-1 rounded">{{ function.name }}</code><br><br>
+
+<h2 class="text-xl font-semibold mb-4">Description</h2>
+<p class="mb-6">{{ function.description }}</p>
+
+<h2 class="text-xl font-semibold mb-4">Arguments</h2>
+<p class="mb-6">Here are the function args</p>
+
+
+<h2 class="text-xl font-semibold mb-4">Returns</h2>
+<p>Here is the return type</p>
+
+
+{% endblock %}
