@@ -1,6 +1,9 @@
+// © Zuse Authors 2020
+// Not Function
 [
     "Function",
     {
+        "description": "Returns the opposite of a boolean expression.",
         "arguments": [
             [
                 "Argument",
