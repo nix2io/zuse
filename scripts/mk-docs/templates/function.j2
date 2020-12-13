@@ -1,17 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-<code class="text-3xl font-bold leading-tight bg-gray-200 p-1 rounded">{{ function.name }}</code><br><br>
+<code class="text-3xl font-bold leading-tight bg-gray-700 p-1 rounded text-gray-200">{{ function.name }}</code><br><br>
+
+<pre class="rounded my-4"><code class="javascript">{{ function.name }}( {{ function.arg_names }} )</code></pre>
 
 <h2 class="text-xl font-semibold mb-4">Description</h2>
 <p class="mb-6">{{ function.description }}</p>
+<br>
+<h2 class="text-xl font-semibold mb-4">Parameters</h2>
+{% if function.arguments|length == 0 %}
+    <span>There are no arguments.</span>
+{% else %}
+    <table class="mb-4">
+        <tr>
+            <th class="py-2 pr-6 border-gray-600 border-b-2">Argument</th>
+            <th class="py-2 px-6 border-gray-600 border-b-2">Type</th>
+            <th class="py-2 pl-6 border-gray-600 border-b-2">Description</th>
+        </tr>
+        {% for arg in function.arguments %}
+            <tr>
+                <td class="py-2 pr-6 border-gray-600 border-b-2">
+                    <code class="bg-gray-700 p-1 rounded">{{ arg.name }}</code>
+                </td>
+                <td class="py-2 px-6 border-gray-600 border-b-2">{{ arg.type }}</td>
+                <td class="py-2 pl-6 border-gray-600 border-b-2">{{ arg.description }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
 
-<h2 class="text-xl font-semibold mb-4">Arguments</h2>
-<p class="mb-6">Here are the function args</p>
-
-
+<br>
 <h2 class="text-xl font-semibold mb-4">Returns</h2>
-<p>Here is the return type</p>
+<p>{{ function.returns }}</p>
+
+<br>
+<h2 class="text-xl font-semibold mb-4">Example</h2>
+<pre class="rounded my-4"><code class="javascript">{{ function.name }}( {{ function.example.args }} )</code></pre>
+<pre class="rounded my-4"><code class="javascript">{{ function.example.returns }}</code></pre>
 
 
+
+<script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}

@@ -6,14 +6,15 @@ import os
 
 
 # Some constants
+ENV = 'prod'
 ROOT_DIR = os.path.join('..', '..')
 DOCS_DIR = os.path.join(ROOT_DIR, 'docs/')
 LANG_DIR = os.path.join(ROOT_DIR, "lang/")
 SPECIFICATION_FILE = os.path.join(ROOT_DIR, "spec.jsonc")
 JINJA_ENVIRONMENT = Environment(loader=FileSystemLoader("templates/"))
 STYLES = {
-    'nav_link_active': 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium',
-    'nav_link': 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+    'nav_link_active': 'px-3 py-2 transition-colors duration-200 relative block text-pink-500',
+    'nav_link': 'px-3 py-2 transition-colors duration-200 relative block hover:text-gray-300 text-gray-500'
 }
 
 # Some functions
@@ -46,7 +47,8 @@ def render(template_name: str, *args, **kwargs):
         f.close()
     return JINJA_ENVIRONMENT.from_string(template).render(*args, **{**{
         "page_name": "Home",
-        "styles": STYLES
+        "styles": STYLES,
+        "ROOT_URL": 'https://nix2io.github.io/zuse/' if ENV != 'dev' else ''
     }, **kwargs})    
 
 def create(template_name: str, target_file: str, *args, **kwargs):
@@ -55,13 +57,66 @@ def create(template_name: str, target_file: str, *args, **kwargs):
         f.write(rendered)
         f.close()
 
+def type_to_py(_type: list) -> str:
+    if type(_type) is str:
+        # built in types
+        if _type == '_string':
+            return 'str'
+        if _type == '_number':
+            return 'int'
+        if _type == '_boolean':
+            return 'bool'
+        if _type == '_array':
+            return 'list'
+        if _type == '_any':
+            return 'any'
+        # types
+        if _type == 'Text':
+            return 'Text'
+        if _type == 'Number':
+            return 'Number'
+        if _type == 'Boolean':
+            return 'Boolean'
+        if _type == 'Null':
+            return 'Null'
+        if _type == 'Any':
+            return 'Any'
+        return '_type'
+
+    if type(_type) is not list:
+        raise Exception(_type + ' is not a list')
+
+    node_type = _type[0]
+    node_args = _type[1]
+    if node_type == 'ArrayOf':
+        return 'Array of {}'.format(type_to_py(node_args['type']))
+    if node_type == 'Union':
+        return '{} or {}'.format(type_to_py(node_args['typeLeft']), type_to_py(node_args['typeRight']))
+
+    if node_type != 'Type':
+        raise Exception(node_type + ' is not a Type')
+    
+
+    typeName = node_args['typeName']
+    return type_to_py(typeName)
+
+def format_value(val):
+    if type(val) is str:
+        return '"' + val + '"'
+    if type(val) is bool:
+        return 'true' if val else 'false'
+    if val is None:
+        return 'null'
+    return str(val)
+
 # Get the language spec
 language_specification = get_language_specification()
 
-# Create the docs dir
-os.mkdir(DOCS_DIR)
-# Create the fn dir
-os.mkdir(os.path.join(DOCS_DIR, 'fn/'))
+if (ENV != 'dev'):
+    # Create the docs dir
+    os.mkdir(DOCS_DIR)
+    # Create the fn dir
+    os.mkdir(os.path.join(DOCS_DIR, 'fn/'))
 
 groups = []
 for group in language_specification['groups']:
@@ -76,13 +131,24 @@ for group in language_specification['groups']:
 
         group_functions.append({ "name": func_name, "description": func_spec[1].get('description', 'No Description')})
 
+        args = [{"name": arg[1]['name'], "type": type_to_py(arg[1]['type']), "description": arg[1].get('description', 'No description')} for arg in func_attr['arguments']]
+
+        test_attr = func_attr['tests'][0][1]
+        example = {
+            "args": ", ".join([format_value(arg) for arg in test_attr['arguments']]),
+            "returns": format_value(test_attr['returns'])
+        }
+
         # Create the function file
 
         create('function', 'fn/' + func_name.lower() + '.html', page_name=func_name, function={
             "name": func_name,
             "description": func_attr.get("description", "No Description"),
-            "arguments": func_attr['arguments'],
-            "returnType": func_attr["returnType"]
+            "arguments": args,
+            "returnType": func_attr["returnType"],
+            "arg_names": ", ".join([arg['name'] for arg in args]),
+            "returns": func_attr.get('returns', 'No return description'),
+            "example": example
         })
 
     groups.append({

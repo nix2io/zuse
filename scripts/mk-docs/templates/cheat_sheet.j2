@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class="text-3xl font-bold leading-tight text-gray-900">Zuse Cheat Sheet</h1><br>
+    <h1 class="text-4xl font-bold leading-tight text-gray-200">Zuse Cheat Sheet</h1><br>
     <p class="mb-6">This page provides quick reference to all of the Zuse functions, group by their major functionality:</p>
     <div class="grid grid-cols-2 gap-4">
     {% for group_set in groups %}
         <div class="group-set-{{ 'left' if loop.index == 1 else 'right' }}">
         {% for group in group_set %}
             <div class="mb-4">
-                <h2 class="bg-gray-300 p-2 mb-4">{{ group.label }}</h2>
+                <h2 class="bg-gray-700 p-2 mb-4">{{ group.label }}</h2>
                 <table>
                     {% for function in group.functions %}
                         <tr>
                             <td class="pb-4">
                                 <a href="fn/{{ function.name.lower() }}.html">
-                                    <code class="text-pink-600 bg-gray-200 p-1 rounded">{{ function.name }}</code>
+                                    <code class="text-pink-500 bg-gray-300 p-1 rounded">{{ function.name }}</code>
                                 </a>
                             </td>
                             <td class="pb-4 pl-4">{{ function.description }}</td>
