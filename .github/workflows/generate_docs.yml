@@ -1,0 +1,33 @@
+name: Generate and Deploy Docs
+on:
+    push:
+        branches:
+            - main
+jobs:
+    docs:
+        name: Generate Docs
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash
+                working-directory: scripts/mk-docs
+        steps:
+            - name: Checkout the repo
+              uses: actions/checkout@v2
+              with:
+                  persist-credentials: false
+            - name: Set up python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: "3.7"
+            - uses: dschep/install-pipenv-action@v1
+            - name: Install dependencies
+              run: pipenv install -d
+            - name: Build
+              run: pipenv run build
+            - name: Deploy 🚀
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages # The branch the action should deploy to.
+                  FOLDER: docs # The folder the action should deploy.
+                  CLEAN: true # Automatically remove deleted files from the deploy branch
