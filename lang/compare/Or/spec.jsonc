@@ -8,6 +8,7 @@
             [
                 "Argument",
                 {
+                    "description": "Left hand boolean value.",
                     "name": "left",
                     "type": [
                         "Type",
@@ -20,6 +21,7 @@
             [
                 "Argument",
                 {
+                    "description": "Right hand boolean value.",
                     "name": "right",
                     "type": [
                         "Type",

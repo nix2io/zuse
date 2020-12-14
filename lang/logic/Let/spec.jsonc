@@ -8,6 +8,7 @@
             [
                 "Argument",
                 {
+                    "description": "Variable name.",
                     "name": "name",
                     "type": [
                         "Type",
@@ -20,6 +21,7 @@
             [
                 "Argument",
                 {
+                    "description": "Variable value.",
                     "name": "value",
                     "type": [
                         "Type",

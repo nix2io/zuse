@@ -8,6 +8,7 @@
             [
                 "Argument",
                 {
+                    "description": "Boolean expression for the condition.",
                     "name": "condition",
                     "type": [
                         "Type",
@@ -20,6 +21,7 @@
             [
                 "Argument",
                 {
+                    "description": "Expression to be run if true.",
                     "name": "ifTrue",
                     "type": [
                         "Type",
@@ -32,6 +34,7 @@
             [
                 "Argument",
                 {
+                    "description": "Expression to be run if false.",
                     "name": "ifFalse",
                     "type": [
                         "Type",

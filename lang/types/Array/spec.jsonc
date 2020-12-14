@@ -8,6 +8,7 @@
             [
                 "Argument",
                 {
+                    "description": "Contents of the array.",
                     "name": "value",
                     "type": [
                         "Type",
