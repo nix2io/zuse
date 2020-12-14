@@ -1,8 +1,7 @@
 # (c) 2020 Zuse Authors
 # Run the tests for the python native functions
 from os import path, listdir
-from json import loads
-from json_minify import json_minify
+from yaml import safe_load
 from typing import List
 from importlib import import_module
 from dependencies import Context
@@ -10,16 +9,16 @@ import pytest
 
 # Define some paths
 ROOT_DIR = path.join('..', '..')
-SPECIFICATION_FILE = path.join(ROOT_DIR, "spec.jsonc");
+SPECIFICATION_FILE = path.join(ROOT_DIR, "spec.yaml");
 LANG_DIR = path.join(ROOT_DIR, "lang/");
 TEMP_FILE = "tmp_logic.py";
 
-def read_json_file(path: str) -> object:
+def read_yaml_file(path: str) -> object:
     '''
-    Read and parse a json file
+    Read and parse a yaml file
     '''
     with open(path) as f:
-        content = loads(json_minify(f.read()))
+        content = safe_load(f.read())
         f.close()
         return content
 
@@ -27,7 +26,7 @@ def get_language_specification():
     '''
     Read and parse the language spec
     '''
-    return read_json_file(SPECIFICATION_FILE)
+    return read_yaml_file(SPECIFICATION_FILE)
 
 def get_group_functions(group_name: str) -> List[str]:
     '''
@@ -75,8 +74,8 @@ for group in language_specification['groups']:
     group_functions = get_group_functions(group)
     for func_name in group_functions:
         func_dir = path.join(LANG_DIR, group + '/', func_name + '/')
-        func_spec_file = path.join(func_dir, 'spec.jsonc')
-        func_spec = read_json_file(func_spec_file)
+        func_spec_file = path.join(func_dir, 'spec.yaml')
+        func_spec = read_yaml_file(func_spec_file)
 
         # ignore tests without logic files
         try:

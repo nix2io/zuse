@@ -1,0 +1,20 @@
+# © Zuse Authors 2020
+# Text Function
+---
+- Function
+- description: Represent text
+  arguments:
+      - - Argument
+        - description: Value of the text
+          name: value
+          type:
+              - Type
+              - typeName: _string
+  returnType:
+      - Type
+      - typeName: Text
+  tests:
+      - - Test
+        - arguments:
+              - hello world
+          returns: hello world

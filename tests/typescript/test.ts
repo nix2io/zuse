@@ -9,94 +9,18 @@ import {
 import { strict } from "assert";
 import { describe, it } from "mocha";
 import { Context } from "./dependencies";
-
-const minify = (json: any) => {
-    var tokenizer = /"|(\/\*)|(\*\/)|(\/\/)|\n|\r/g,
-        in_string = false,
-        in_multiline_comment = false,
-        in_singleline_comment = false,
-        tmp,
-        tmp2,
-        new_str = [],
-        ns = 0,
-        from = 0,
-        lc,
-        rc;
-
-    tokenizer.lastIndex = 0;
-
-    while ((tmp = tokenizer.exec(json))) {
-        // @ts-ignore
-        lc = RegExp.leftContext;
-        // @ts-ignore
-        rc = RegExp.rightContext;
-        if (!in_multiline_comment && !in_singleline_comment) {
-            tmp2 = lc.substring(from);
-            if (!in_string) {
-                tmp2 = tmp2.replace(/(\n|\r|\s)*/g, "");
-            }
-            new_str[ns++] = tmp2;
-        }
-        from = tokenizer.lastIndex;
-
-        if (tmp[0] == '"' && !in_multiline_comment && !in_singleline_comment) {
-            tmp2 = lc.match(/(\\)*$/);
-            if (!in_string || !tmp2 || tmp2[0].length % 2 == 0) {
-                // start of string with ", or unescaped " character found to end string
-                in_string = !in_string;
-            }
-            from--; // include " character in next catch
-            rc = json.substring(from);
-        } else if (
-            tmp[0] == "/*" &&
-            !in_string &&
-            !in_multiline_comment &&
-            !in_singleline_comment
-        ) {
-            in_multiline_comment = true;
-        } else if (
-            tmp[0] == "*/" &&
-            !in_string &&
-            in_multiline_comment &&
-            !in_singleline_comment
-        ) {
-            in_multiline_comment = false;
-        } else if (
-            tmp[0] == "//" &&
-            !in_string &&
-            !in_multiline_comment &&
-            !in_singleline_comment
-        ) {
-            in_singleline_comment = true;
-        } else if (
-            (tmp[0] == "\n" || tmp[0] == "\r") &&
-            !in_string &&
-            !in_multiline_comment &&
-            in_singleline_comment
-        ) {
-            in_singleline_comment = false;
-        } else if (
-            !in_multiline_comment &&
-            !in_singleline_comment &&
-            !/\n|\r|\s/.test(tmp[0])
-        ) {
-            new_str[ns++] = tmp[0];
-        }
-    }
-    new_str[ns++] = rc;
-    return new_str.join("");
-};
+import { safeLoad } from "js-yaml";
 
 // Define some paths
 const ROOT_DIR = join("../../");
-const SPECIFICATION_FILE = join(ROOT_DIR, "spec.jsonc");
+const SPECIFICATION_FILE = join(ROOT_DIR, "spec.yaml");
 const LANG_DIR = join(ROOT_DIR, "lang/");
 const TEMP_FILE = "tmp_logic.ts";
 
 const getLanguageSpecification = (): {
     version: number;
     groups: string[];
-} => JSON.parse(minify(readFileSync(SPECIFICATION_FILE, "utf-8")));
+} => safeLoad(readFileSync(SPECIFICATION_FILE, "utf-8")) as any;
 
 const getGroupFunctions = (groupName: string): string[] => {
     const groupFolder = join(LANG_DIR, `${groupName}/`);
@@ -157,10 +81,10 @@ describe("Typescript Functions", () => {
             for (const funcName of groupFunctions) {
                 describe(funcName, () => {
                     const funcDir = join(LANG_DIR, `${group}/`, `${funcName}/`);
-                    const funcSpecFile = join(funcDir, "spec.jsonc");
-                    const funcSpec = JSON.parse(
-                        minify(readFileSync(funcSpecFile, "utf-8")),
-                    );
+                    const funcSpecFile = join(funcDir, "spec.yaml");
+                    const funcSpec = safeLoad(
+                        readFileSync(funcSpecFile, "utf-8"),
+                    ) as any;
 
                     const logicFunc =
                         logicFunctions[`${funcName.toLowerCase()}_logic`];

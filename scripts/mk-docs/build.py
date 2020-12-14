@@ -1,6 +1,5 @@
 from jinja2 import Template, Environment, FileSystemLoader
-from json import loads
-from json_minify import json_minify
+from yaml import safe_load
 from typing import List
 import os
 
@@ -10,7 +9,7 @@ ENV = 'prod'
 ROOT_DIR = os.path.join('..', '..')
 DOCS_DIR = os.path.join(ROOT_DIR, 'docs/')
 LANG_DIR = os.path.join(ROOT_DIR, "lang/")
-SPECIFICATION_FILE = os.path.join(ROOT_DIR, "spec.jsonc")
+SPECIFICATION_FILE = os.path.join(ROOT_DIR, "spec.yaml")
 JINJA_ENVIRONMENT = Environment(loader=FileSystemLoader("templates/"))
 STYLES = {
     'nav_link_active': 'px-3 py-2 transition-colors duration-200 relative block text-pink-500',
@@ -18,12 +17,12 @@ STYLES = {
 }
 
 # Some functions
-def read_json_file(path: str) -> object:
+def read_yaml_file(path: str) -> object:
     '''
-    Read and parse a json file
+    Read and parse a yaml file
     '''
     with open(path) as f:
-        content = loads(json_minify(f.read()))
+        content = safe_load(f.read())
         f.close()
         return content
 
@@ -31,7 +30,7 @@ def get_language_specification():
     '''
     Read and parse the language spec
     '''
-    return read_json_file(SPECIFICATION_FILE)
+    return read_yaml_file(SPECIFICATION_FILE)
 
 def get_group_functions(group_name: str) -> List[str]:
     '''
@@ -125,8 +124,8 @@ for group in language_specification['groups']:
     group_functions = []
     for func_name in group_function_names:
         func_dir = os.path.join(LANG_DIR, group + '/', func_name + '/')
-        func_spec_file = os.path.join(func_dir, 'spec.jsonc')
-        func_spec = read_json_file(func_spec_file)
+        func_spec_file = os.path.join(func_dir, 'spec.yaml')
+        func_spec = read_yaml_file(func_spec_file)
         func_attr = func_spec[1]
 
         group_functions.append({ "name": func_name, "description": func_spec[1].get('description', 'No Description')})

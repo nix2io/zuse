@@ -1,0 +1,24 @@
+# © Zuse Authors 2020
+# Boolean Function
+---
+- Function
+- description: Represent a boolean
+  arguments:
+      - - Argument
+        - description: Boolean value.
+          name: value
+          type:
+              - Type
+              - typeName: _boolean
+  returnType:
+      - Type
+      - typeName: Boolean
+  tests:
+      - - Test
+        - arguments:
+              - true
+          returns: true
+      - - Test
+        - arguments:
+              - false
+          returns: false

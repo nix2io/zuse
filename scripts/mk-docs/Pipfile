@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 jinja2 = "*"
-json-minify = "*"
 
 [dev-packages]
+pyyaml = "*"
 
 [requires]
 python_version = "3.7"

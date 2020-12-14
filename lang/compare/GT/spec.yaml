@@ -1,0 +1,37 @@
+# © Zuse Authors 2020
+# Greater than Function
+---
+- Function
+- description: If the left value is greater than the right value
+  arguments:
+      - - Argument
+        - description: Left hand expression to compare.
+          name: left
+          type:
+              - Type
+              - typeName: Number
+      - - Argument
+        - description: Right hand expression to compare.
+          name: right
+          type:
+              - Type
+              - typeName: Number
+  returnType:
+      - Type
+      - typeName: Boolean
+  tests:
+      - - Test
+        - arguments:
+              - 2
+              - 1
+          returns: true
+      - - Test
+        - arguments:
+              - 1
+              - 2
+          returns: false
+      - - Test
+        - arguments:
+              - 1
+              - 1
+          returns: false
