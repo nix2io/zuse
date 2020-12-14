@@ -1,0 +1,16 @@
+# © Zuse Authors 2020
+# e Function
+---
+- Function
+- description: Value of Eulers number.
+  arguments: []
+  returnType:
+      - Type
+      - typeName: number
+  logic:
+      - Number
+      - value: 2.71828
+  tests:
+      - - Test
+        - arguments: []
+          returns: 2.71828

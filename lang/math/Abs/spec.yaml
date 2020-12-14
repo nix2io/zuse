@@ -1,0 +1,38 @@
+# © Zuse Authors 2020
+# Absolute Function
+---
+- Function
+- description: Returns the absolute value of a number.
+  arguments:
+      - - Argument
+        - description: Number to get the absolute.
+          name: value
+          type: Number
+  returnType:
+      - Type
+      - typeName: Number
+  logic:
+      - If
+      - condition:
+            - LT
+            - left:
+                  - Var
+                  - name: value
+              right: 0
+        ifTrue:
+            - Opposite
+            - value:
+                  - Var
+                  - name: value
+        ifFalse:
+            - Var
+            - name: value
+  tests:
+      - - Test
+        - arguments:
+              - -1
+          returns: 1
+      - - Test
+        - arguments:
+              - 1
+          returns: 1
