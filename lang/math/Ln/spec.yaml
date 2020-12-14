@@ -1,0 +1,23 @@
+# © Zuse Authors 2020
+# Natural Logarithm Function
+---
+- Function
+- description: Returns the natural logarithm (base e) of a number.
+  arguments:
+      - - Arugment
+        - description: The number whose base-e natural logarithm should be returned.
+          name: value
+          type:
+              - Type
+              - typeName: Number
+  returnType:
+      - Type
+      - typeName: Number
+  logic:
+      - Log
+      - value:
+            - Var
+            - name: value
+        base:
+            - E
+            - {}

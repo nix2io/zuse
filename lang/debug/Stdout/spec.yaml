@@ -1,11 +1,11 @@
 # © Zuse Authors 2020
-# Log Function
+# Stdout Function
 ---
 - Function
 - description: Print text to stdout
   arguments:
       - - Argument
-        - description: Value to log.
+        - description: Value to print to stdout.
           name: value
           type:
               - Type

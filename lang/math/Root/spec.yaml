@@ -1,0 +1,42 @@
+# © Zuse Authors 2020
+# Nth Root Function
+---
+- Function
+- description: Get the nth root of a value.
+  arguments:
+      - - Argument
+        - description: Value to get the nth root of.
+          name: value
+          type:
+              - Type
+              - typeName: Number
+      - - Argument
+        - description: n.
+          nane: "n"
+          type:
+              - Type
+              - typeName: Number
+          default: 2
+  returnType:
+      - Type
+      - typeName: Number
+  logic:
+      - Pow
+      - value:
+            - Var
+            - name: value
+      - exp:
+            - Reciprocal
+            - value:
+                  - Var
+                  - name: "n"
+  tests:
+      - - Test
+        - arguments:
+              - 16
+              - 3
+          returns: 2
+      - - Test
+        - arguments:
+              - 64
+          returns: 8
