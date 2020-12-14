@@ -1,7 +1,7 @@
 # (c) 2020 Zuse Authors
 # Run the tests for the python native functions
 from os import path, listdir
-import yaml
+from yaml import safe_load
 from typing import List
 from importlib import import_module
 from dependencies import Context
@@ -18,7 +18,7 @@ def read_yaml_file(path: str) -> object:
     Read and parse a yaml file
     '''
     with open(path) as f:
-        content = yaml.safe_load(f.read())
+        content = safe_load(f.read())
         f.close()
         return content
 
