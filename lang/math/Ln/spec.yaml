@@ -21,3 +21,8 @@
         base:
             - E
             - {}
+  tests:
+      - - Test
+        - arguments:
+              - 5
+          returns: 1.60943791
