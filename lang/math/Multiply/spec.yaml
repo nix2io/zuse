@@ -1,0 +1,23 @@
+# © Zuse Authors 2020
+# Multiply Function
+---
+- Function
+- description: Multiply two numbers
+  arguments:
+      - - Argument
+        - description: Left hand number expression.
+          name: left
+          type: Number
+      - - Argument
+        - description: Right hand number expression.
+          name: right
+          type: Number
+  returnType:
+      - Type
+      - typeName: Number
+  tests:
+      - - Test
+        - arguments:
+              - 2
+              - 3
+          returns: 6
