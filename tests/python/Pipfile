@@ -7,7 +7,7 @@ name = "pypi"
 
 [dev-packages]
 pytest = "*"
-json-minify = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.7"
