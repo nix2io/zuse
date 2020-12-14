@@ -8,6 +8,7 @@
             [
                 "Argument",
                 {
+                    "description": "Value to log.",
                     "name": "value",
                     "type": [
                         "Type",

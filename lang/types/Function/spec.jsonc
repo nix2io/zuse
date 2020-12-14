@@ -8,6 +8,7 @@
             [
                 "Argument",
                 {
+                    "description": "Function arguments.",
                     "name": "arguments",
                     "type": [
                         "ArrayOf",
@@ -25,6 +26,7 @@
             [
                 "Argument",
                 {
+                    "description": "Function return type",
                     "name": "returnType",
                     "type": [
                         "Type",
@@ -37,6 +39,7 @@
             [
                 "Argument",
                 {
+                    "description": "Function logic.",
                     "name": "logic",
                     "type": [
                         "Union",
@@ -60,6 +63,7 @@
             [
                 "Argument",
                 {
+                    "description": "Function description.",
                     "name": "description",
                     "type": [
                         "Type",

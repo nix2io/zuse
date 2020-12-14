@@ -8,6 +8,7 @@
             [
                 "Argument",
                 {
+                    "description": "Name of the argument.",
                     "name": "name",
                     "type": [
                         "Type",
@@ -20,6 +21,7 @@
             [
                 "Argument",
                 {
+                    "description": "Type of the argument.",
                     "name": "type",
                     "type": [
                         "Type",

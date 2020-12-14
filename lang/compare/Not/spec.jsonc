@@ -5,6 +5,7 @@
             [
                 "Argument",
                 {
+                    "description": "Boolean expression to reverse.",
                     "name": "value",
                     "type": [
                         "Type",

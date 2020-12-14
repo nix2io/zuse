@@ -8,6 +8,7 @@
             [
                 "Argument",
                 {
+                    "description": "Left hand expression to compare.",
                     "name": "left",
                     "type": [
                         "Type",
@@ -20,6 +21,7 @@
             [
                 "Argument",
                 {
+                    "description": "Right hand expression to compare.",
                     "name": "right",
                     "type": [
                         "Type",
