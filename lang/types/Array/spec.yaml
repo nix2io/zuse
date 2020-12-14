@@ -1,0 +1,27 @@
+# © Zuse Authors 2020
+# Array Function
+---
+- Function
+- description: Create an array of items
+  arguments:
+      - - Argument
+        - description: Contents of the array.
+          name: value
+          type:
+              - Type
+              - typeName: _array
+  returnType:
+      - ArrayOf
+      - type:
+            - Type
+            - typeName: Any
+  tests:
+      - - Test
+        - arguments:
+              - - 1
+                - 2
+                - 3
+          returns:
+              - 1
+              - 2
+              - 3

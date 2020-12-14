@@ -1,6 +1,0 @@
-// © Zuse Authors 2020
-// Language Specification
-{
-    "version": 1,
-    "groups": ["compare", "debug", "logic", "types"]
-}

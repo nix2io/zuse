@@ -1,0 +1,22 @@
+# © Zuse Authors 2020
+# Log Function
+---
+- Function
+- description: Print text to stdout
+  arguments:
+      - - Argument
+        - description: Value to log.
+          name: value
+          type:
+              - Type
+              - typeName: Any
+  returnType:
+      - Type
+      - typeName: "Null"
+  tests:
+      - - Test
+        - arguments:
+              - Hi There
+          returns:
+          # Make sure the text gets logged
+          inLog: Hi There
