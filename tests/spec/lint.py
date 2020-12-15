@@ -134,6 +134,4 @@ for name, func in lanugage_specification.items():
     try:
         lint_func(func, position)
     except LintError as e:
-        print(os.path.abspath(e.position.file))
-        print("Error: {}:{} error {}".format(5, 1, e.msg))
-        exit(1)
+        print("::error file={},line={},col={}::{}".format(e.position.file, 5, 1, e.msg))

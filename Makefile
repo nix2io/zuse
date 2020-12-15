@@ -1,5 +1,5 @@
 test:
-	cd ./tests/spec & pipenv run test
+	cd ./tests/spec & pipenv run lint
 	yarn --cwd ./tests/typescript run test
 	cd ./tests/python & pipenv run test
 docs:
@@ -7,4 +7,4 @@ docs:
 lint-deps:
 	cd ./tests/spec & pipenv install -d
 lint:
-	cd ./tests/spec & pipenv run test
+	cd ./tests/spec & pipenv run lint
