@@ -82,9 +82,16 @@ describe("Typescript Functions", () => {
                 describe(funcName, () => {
                     const funcDir = join(LANG_DIR, `${group}/`, `${funcName}/`);
                     const funcSpecFile = join(funcDir, "spec.yaml");
-                    const funcSpec = safeLoad(
-                        readFileSync(funcSpecFile, "utf-8"),
-                    ) as any;
+                    let funcSpec;
+                    try {
+
+                        funcSpec = safeLoad(
+                            readFileSync(funcSpecFile, "utf-8"),
+                            ) as any;
+                    } catch (e) {
+                        console.error('Could not parse ' + funcName);
+                        throw e;
+                    }
 
                     const logicFunc =
                         logicFunctions[`${funcName.toLowerCase()}_logic`];

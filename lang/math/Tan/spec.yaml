@@ -1,0 +1,20 @@
+# © Zuse Authors 2020
+# Tangent Function
+---
+- Function
+- description: Returns the Tangent of a number.
+  arguments:
+    - - Argument
+      - description: The number whose tangent should be returned in radians.
+        name: value
+        type:
+          - Type
+          - typeName: Number
+  returnType:
+    - Type
+    - typeName: Number
+  tests:
+    - - Test
+      - arguments:
+          - .5
+        returns: 0.5463024898437905
