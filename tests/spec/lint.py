@@ -35,16 +35,34 @@ language_specification_base = get_language_specification()
 # TODO: lint the language specification base file
 
 lanugage_specification = {}
+language_paths = {}
 for group_name in language_specification_base['groups']:
     group_functions = get_group_functions(group_name)
     for func in group_functions:
-        with open(os.path.join(LANG_DIR, group_name + "/", func + "/spec.yaml")) as f:
+        func_path = os.path.join(LANG_DIR, group_name, func, "spec.yaml")
+        with open(func_path) as f:
             lanugage_specification[func] = safe_load(f.read())
+            language_paths[func] = func_path
             f.close()
 
 
 
 from pprint import pprint
+
+
+class Position:
+    def __init__(self) -> None:
+        self.file: str = None
+    
+    def set_file(self, file: str) -> str:
+        self.file = file
+        return file
+
+class LintError(Exception):
+    def __init__(self, position: Position, msg) -> None:
+        super().__init__('ERROR PARSING {}: {}'.format(position.file, msg))
+        self.position = position
+        self.msg = msg
 
 
 linted_funcs = set()
@@ -62,7 +80,12 @@ def isNodeLike(node):
         return True, False
     return False, False
 
-def lint_func(obj):
+def lint_func(obj, position: Position, no_recursion=False):
+    print()
+    print('linting...')
+    pprint(obj)
+    print()
+
     isNode, isArray = isNodeLike(obj)
     if not isNode:
         return
@@ -76,7 +99,7 @@ def lint_func(obj):
         # Verify all the arguments from the function
         spec = lanugage_specification.get(name)
         if spec is None:
-            raise Exception(name + " is not a valid function")
+            raise LintError(position, name + " is not a valid function")
         # verify arguments
         spec_attr = spec[1]
         spec_arguments = spec_attr['arguments']
@@ -84,23 +107,33 @@ def lint_func(obj):
         for arg in spec_arguments:
 
             # Lint the argument
+            if not no_recursion:
+                
+                lint_func(arg, position, no_recursion=True)
+
 
             _, arg_args = arg
             
-            print(arg_args)
 
             arg_name = arg_args['name']
             if arg_name not in args.keys() and 'default' not in arg_args:
-                raise Exception(arg_name + ' not in args for ' + name)
+                raise LintError(position, arg_name + ' not in args for ' + name)
         
         for key in args.keys():
             if key not in [v['name'] for _, v in spec_arguments]:
-                raise Exception(key + " is not a valid arg for " + name)
+                raise LintError(position, key + " is not a valid arg for " + name)
 
         print(args)
         print()
 
 
+position = Position()
 
 for name, func in lanugage_specification.items():
-    lint_func(func)
+    position.set_file(language_paths[name])
+    try:
+        lint_func(func, position)
+    except LintError as e:
+        print(os.path.abspath(e.position.file))
+        print("Error: {}:{} error {}".format(5, 1, e.msg))
+        exit(1)

@@ -10,7 +10,7 @@
           type:
               - Type
               - typeName: Text
-          isNullable: true
+          default: No function description.
       - - Argument
         - description: Function arguments.
           name: arguments
@@ -40,10 +40,10 @@
       - - Argument
         - description: Function tests
           type:
-            - ArrayOf
-            - name:
-                - Type
-                - typeName: Test
+              - ArrayOf
+              - name:
+                    - Type
+                    - typeName: Test
   returnType:
       - Type
       - typeName: Text
