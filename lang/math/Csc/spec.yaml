@@ -1,0 +1,27 @@
+# © Zuse Authors 2020
+# Cosecant Function
+---
+- Function
+- description: Returns the Cosecant of a number.
+  arguments:
+    - - Argument
+      - description: The number whose cosecant should be returned in radians.
+        name: value
+        type:
+          - Type
+          - typeName: Number
+  returnType:
+    - Type
+    - typeName: Number
+  logic:
+    - Reciprocal
+    - value:
+        - Sin
+        - value:
+            - Var
+            - name: value
+  tests:
+    - - Test
+      - arguments:
+          - 1
+        returns: 57.29868849

@@ -1,0 +1,20 @@
+# © Zuse Authors 2020
+# Cosine Function
+---
+- Function
+- description: Returns the Cosine of a number.
+  arguments:
+    - - Argument
+      - description: The number whose cosine should be returned in radians.
+        name: value
+        type:
+          - Type
+          - typeName: Number
+  returnType:
+    - Type
+    - typeName: Number
+  tests:
+    - - Test
+      - arguments:
+          - .5
+        returns: .8775825618903728
