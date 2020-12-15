@@ -12,4 +12,4 @@ pyyaml = "*"
 python_version = "3.7"
 
 [scripts]
-test = "python lint.py"
+lint = "python lint.py"
