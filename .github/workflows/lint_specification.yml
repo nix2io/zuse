@@ -1,0 +1,28 @@
+name: Lint Language Speficiation
+on:
+    pull_request:
+        branches:
+            - main
+    push:
+        branches:
+            - main
+jobs:
+    lint:
+        name: Lint Specification
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash
+                working-directory: tests/spec
+        steps:
+            - name: Checkout the repo
+              uses: actions/checkout@v2
+            - name: Set up python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: "3.7"
+            - uses: dschep/install-pipenv-action@v1
+            - name: Install dependencies
+              run: pipenv install -d
+            - name: Run the test
+              run: pipenv run test
