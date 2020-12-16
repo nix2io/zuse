@@ -160,15 +160,18 @@ for group in language_specification["groups"]:
             }
         )
 
-        args = [
-            {
-                "name": arg[1]["name"],
-                "type": type_to_py(arg[1]["type"]),
-                "description": arg[1].get("description", "No description"),
-            }
-            for arg in func_attr["arguments"]
-        ]
-
+        try:
+          args = [
+              {
+                  "name": arg[1]["name"],
+                  "type": type_to_py(arg[1]["type"]),
+                  "description": arg[1].get("description", "No description"),
+              }
+              for arg in func_attr["arguments"]
+          ]
+        except Exception as e:
+            print('Failed to build func: ' + func_name)
+            raise Exception
         test_attr = func_attr["tests"][0][1]
         example = {
             "args": ", ".join([format_value(arg) for arg in test_attr["arguments"]]),

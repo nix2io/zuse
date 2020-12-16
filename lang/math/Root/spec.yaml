@@ -12,7 +12,7 @@
               - typeName: Number
       - - Argument
         - description: n.
-          nane: "n"
+          name: "n"
           type:
               - Type
               - typeName: Number
