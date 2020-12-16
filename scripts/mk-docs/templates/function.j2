@@ -7,6 +7,20 @@
 
 <h2 class="text-xl font-semibold mb-4">Description</h2>
 <p class="mb-6">{{ function.description }}</p>
+
+<br>
+<h2 class="text-xl font-semibold mb-4">Logic</h2>
+{% if function.zuse_logic %}
+    <p>Uses native logic</p>
+{% else %}
+    <h3>Supported Interpreter Languages</h3>
+    <div class="flex -space-x-1 overflow-hidden">
+        {% for lang in function.native_langs %}
+        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="{{ lang.icon }}" alt="{{ lang.label }}" title="{{ lang.label }}">
+        {% endfor %}
+    </div>
+{% endif %}
+<br>
 <br>
 <h2 class="text-xl font-semibold mb-4">Parameters</h2>
 {% if function.arguments|length == 0 %}

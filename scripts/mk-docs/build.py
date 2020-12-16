@@ -56,7 +56,7 @@ def render(template_name: str, *args, **kwargs):
             **{
                 "page_name": "Home",
                 "styles": STYLES,
-                "ROOT_URL": "https://nix2io.github.io/zuse/" if ENV != "dev" else "",
+                "ROOT_URL": "https://nix2io.github.io/zuse/",
             },
             **kwargs,
         }
@@ -128,11 +128,13 @@ def format_value(val):
 # Get the language spec
 language_specification = get_language_specification()
 
-if ENV != "dev":
-    # Create the docs dir
+# Create the docs dir
+if not os.path.exists(DOCS_DIR):
     os.mkdir(DOCS_DIR)
-    # Create the fn dir
-    os.mkdir(os.path.join(DOCS_DIR, "fn/"))
+# Create the fn dir
+fn_dir = os.path.join(DOCS_DIR, "fn/")
+if not os.path.exists(fn_dir):
+    os.mkdir(fn_dir)
 
 groups = []
 for group in language_specification["groups"]:
@@ -144,6 +146,12 @@ for group in language_specification["groups"]:
         func_spec_file = os.path.join(func_dir, "spec.yaml")
         func_spec = read_yaml_file(func_spec_file)
         func_attr = func_spec[1]
+        func_zuse_logic = 'logic' in func_attr
+        func_native_langs = []
+        for lang_name, lang in language_specification['languages'].items():
+            lang_ext = lang['extension']
+            if os.path.exists(os.path.join(func_dir, "logic." + lang_ext)):
+                func_native_langs.append(lang)
 
         group_functions.append(
             {
@@ -181,6 +189,8 @@ for group in language_specification["groups"]:
                 "arg_names": ", ".join([arg["name"] for arg in args]),
                 "returns": func_attr.get("returns", "No return description"),
                 "example": example,
+                "native_langs": func_native_langs,
+                "zuse_logic": func_zuse_logic
             },
         )
 
