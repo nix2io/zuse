@@ -7,3 +7,12 @@ groups:
     - logic
     - types
     - math
+languages:
+    typescript:
+        extension: ts
+        label: Typescript
+        logo: https://miro.medium.com/max/816/1*mn6bOs7s6Qbao15PMNRyOA.png
+    python:
+        extension: py
+        label: Python
+        logo: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png
