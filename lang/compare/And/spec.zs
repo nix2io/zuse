@@ -1,3 +1,6 @@
+# © Zuse Authors 2020
+# And Function
+
 # Returns true if both values are true.
 fn Boolean (
   # Left hand boolean expression.
