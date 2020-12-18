@@ -1,1 +1,0 @@
-export const logic = (ctx: Context, value: number): number => Math.tan(ctx.val(value) as number)
