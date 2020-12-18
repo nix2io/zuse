@@ -4,7 +4,7 @@ fn Boolean (
   Boolean left,
   # Right hand boolean expression.
   Boolean right
-) native -> [
+) { native; } -> [
   Test(arguments=[true, true], returns=true),
   Test(arguments=[true, false], returns=false),
   Test(arguments=[false, true], returns=false),
