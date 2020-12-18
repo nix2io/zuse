@@ -1,5 +1,5 @@
 # Returns true if both values are true.
-fn (
+fn Boolean (
   # Left hand boolean expression.
   Boolean left,
   # Right hand boolean expression.
