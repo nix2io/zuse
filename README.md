@@ -1,4 +1,4 @@
-<p align="center"><img height="220px" src="https://www.kerryr.net/images/pioneers/gallery/zuse_logo_lg.jpg" alt="Logo" /><p>
+<p align="center"><img height="220px" src="https://i.imgur.com/GXmliga.png" alt="Logo" /><p>
 
 <p align="center">
   <strong>The Zuse Language</strong><br />
