@@ -5,4 +5,4 @@
 fn ArrayOf(Any) (
     # Contents of the array.
     _array value
-) { ["Array", ] }
+) { ctx.stdfunc.array(value) }

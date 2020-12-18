@@ -11,11 +11,4 @@ fn Argument (
     Any default,
     # Description of the argument.
     Text description
-) { ["Argument", ctx.args] } -> [
-    Test(
-        ["arg", "Text"],
-        ["Argument",
-            {"name": "arg", "type": ["Type", {"typeName": "Text"}]}
-        ]
-    )
-]
+) { ctx.stdfunc.argument(name, type, default, description) }
