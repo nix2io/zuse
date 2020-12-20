@@ -16,6 +16,19 @@
           type:
               - Type
               - typeName: Any
+      - - Argument
+        - description: Argument description.
+          name: description
+          type:
+              - Type
+              - typeName: Text
+      - - Argument
+        - description: Default value for an argument.
+          name: default
+          type:
+              - Type
+              - typeName: Any
+          default: null
   returnType:
       - Type
       - typeName: Argument

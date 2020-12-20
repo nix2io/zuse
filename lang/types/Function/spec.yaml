@@ -5,6 +5,13 @@
 - description: Create an anonymous function
   arguments:
       - - Argument
+        - description: Function description.
+          name: description
+          type:
+              - Type
+              - typeName: Text
+          default: No function description.
+      - - Argument
         - description: Function arguments.
           name: arguments
           type:
@@ -29,13 +36,14 @@
                 typeRight:
                     - Type
                     - typeName: _function
+          default: null
       - - Argument
-        - description: Function description.
-          name: description
+        - description: Function tests
           type:
-              - Type
-              - typeName: Text
-          isNullable: true
+              - ArrayOf
+              - name:
+                    - Type
+                    - typeName: Test
   returnType:
       - Type
       - typeName: Text
