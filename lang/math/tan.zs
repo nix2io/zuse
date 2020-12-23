@@ -2,9 +2,13 @@
 # Tangent Function
 
 # Returns the Tangent of a number.
-fn Number (
+fn (
     # The number whose tangent should be returned in radians.
     Number value
-) { ctx.stdfunc.tan(value) } -> [
+): Number {
+    return ctx.stdfunc.tan(
+        value=value
+    );
+} -> [
     Test([.5], 0.5463024898437905)
 ]

@@ -2,10 +2,12 @@
 # Reciprocal Function
 
 # Return the reciprocal of a number.
-fn Number (
+fn (
     # Value to get the reciprocal of.
     Number value
-) { value ^ -1 } -> [
+): Number {
+    return value ^ -1;
+} -> [
     Test([2], .5),
     Test([4], .25)
 ]

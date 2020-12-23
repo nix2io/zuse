@@ -2,10 +2,20 @@
 # Absolute Function
 
 # Returns the absolute value of a number.
-fn Number (
+fn (
     # Number to get the absolute.
     Number value
-) { Opposite(value) if value < 0 else value } -> [
+): Number {
+    if IsNegative(
+        value=value
+    ) {
+        return Opposite(
+            value=value
+        );
+    } else {
+        return value;
+    }
+} -> [
     Test([-1], 1),
     Test([1], 1)
 ]

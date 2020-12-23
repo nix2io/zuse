@@ -2,7 +2,9 @@
 # Number Function
 
 # Represent a number.
-fn Number (
+fn (
     # Value of the number.
-    _number Value
-) { ctx.stdfunc.number(value) }
+    number Value
+): Number {
+    return ctx.stdfunc.number(value);
+}

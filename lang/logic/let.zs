@@ -2,11 +2,16 @@
 # Let Function
 
 # Define a variable
-fn Any (
+fn (
     # Variable name
     Text name,
     # Variable value.
     Any value
-) { ctx.let(name, value) } -> [
+): Any {
+    return ctx.let(
+        name=name,
+        value=value
+    );
+} -> [
     Test(["foo", "bar"], "bar", createdSymbols=[["foo", "bar"]])
 ]

@@ -2,9 +2,13 @@
 # Var Function
 
 # Get the value of a variable
-fn Any (
+fn (
     # Variable name.
     Text name
-) { ctx.var(name) } -> [
+): Any {
+    return ctx.var(
+        name=name
+    );
+} -> [
     Test(["foo_1"], "bar")
 ]

@@ -2,7 +2,7 @@
 # Argument Function
 
 # The type for a function argument.
-fn Argument (
+fn (
     # Name of the argument.
     Text name,
     # Type of the argument.
@@ -11,4 +11,6 @@ fn Argument (
     Any default,
     # Description of the argument.
     Text description
-) { ctx.stdfunc.argument(name, type, default, description) }
+): Argument {
+    return ctx.stdfunc.argument(name, type, default, description);
+}

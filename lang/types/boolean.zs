@@ -2,7 +2,9 @@
 # Boolean Function
 
 # Represent a boolean.
-fn Boolean (
+fn (
     # Value of the boolean.
-    _boolean value
-) { ctx.stdfunc.boolean(value) }
+    boolean value
+): Boolean {
+    return ctx.stdfunc.boolean(value);
+}

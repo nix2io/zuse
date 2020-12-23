@@ -2,9 +2,14 @@
 # Natural Logarithm Function
 
 # Returns the natural logarithm (base e) of a number.
-fn Number (
+fn (
     # The number whose base-e natural logarithm should be returned.
     Number value
-) { Log(value, E()) } -> [
+): Number {
+    return Log(
+        value=value,
+        base=E()
+    );
+} -> [
     Test([5], 1.60943791)
 ]

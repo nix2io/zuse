@@ -2,12 +2,17 @@
 # Equals Function
 
 # Returns true if both values are equal.
-fn Boolean (
+fn (
     # Left hand expression to compare.
     Any left,
     # Right hand expression to compare.
     Any right
-) { ctx.stdfunc.eq(left, right) } -> [
+): Boolean {
+    return ctx.stdfunc.eq(
+        left=left,
+        right=right
+    );
+} -> [
     Test(["foo", "foo"], true),
     Test(["foo", "bar"], false)
 ]

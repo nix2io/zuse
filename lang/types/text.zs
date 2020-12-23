@@ -2,7 +2,9 @@
 # Text Function
 
 # Represent text.
-fn Number (
+fn (
     # Value of the text.
-    _string Value
-) { ctx.stdfunc.text(value) }
+    string Value
+): Number {
+    return ctx.stdfunc.text(value);
+}

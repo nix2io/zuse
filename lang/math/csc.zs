@@ -2,13 +2,15 @@
 # Cosecant Function
 
 # Returns the Cosecant of a number.
-fn Number (
+fn (
     # The number whose cosecant should be returned in radians.
     Number value
-) {
-    Reciprocal(
-        Sin(value)
-    )
+): Number {
+    return Reciprocal(
+        value=Sin(
+            value=value
+        )
+    );
 } -> [
     Test([1], 57.29868849)
 ]

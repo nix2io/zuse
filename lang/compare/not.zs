@@ -2,10 +2,16 @@
 # Not Function
 
 # Returns the opposite of a boolean expression.
-fn Boolean (
+fn (
     # Boolean expression to reverse.
     Boolean value
-) { false if value else true } -> [
+): Boolean {
+    if value {
+        return false;
+    } else {
+        return true;
+    }
+} -> [
     Test([true], false),
     Test([false], true)
 ]

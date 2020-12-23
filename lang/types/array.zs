@@ -2,7 +2,9 @@
 # Array Function
 
 # Create an array of items.
-fn ArrayOf(Any) (
+fn (
     # Contents of the array.
     _array value
-) { ctx.stdfunc.array(value) }
+): ArrayOf(Any) {
+    return ctx.stdfunc.array(value);
+}

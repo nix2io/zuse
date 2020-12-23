@@ -2,10 +2,15 @@
 # Cube Root Function
 
 # Get the square root of a value.
-fn Number (
+fn (
     # Value to get the square root of.
     Number value
-) { Root(value, 2) } -> [
+): Number {
+    Root(
+        value=value,
+        n=2
+    )
+} -> [
     Test([64], 8),
     Test([16], 4)
 ]

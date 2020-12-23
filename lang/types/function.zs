@@ -2,7 +2,7 @@
 # Function Function
 
 # Create an anonymous function.
-fn Function (
+fn (
     # Function arguments.
     ArrayOf(Argument) arguments,
     # Function return type.
@@ -11,4 +11,6 @@ fn Function (
     Any logic,
     # Function description.
     Text description
-) { ctx.stdfunc.function(arguments, type, logic, description) }
+): Function {
+    return ctx.stdfunc.function(arguments, type, logic, description);
+}

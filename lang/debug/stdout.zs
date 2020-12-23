@@ -2,9 +2,11 @@
 # Stdout Function
 
 # Print a value to stdout.
-fn Void (
+fn (
     # Value to print to stdout.
     Any value
-) { ctx.stdout(value) } -> [
+) {
+    ctx.stdout(value);
+} -> [
     Test(["hi there"], inLog="hi there")
 ]

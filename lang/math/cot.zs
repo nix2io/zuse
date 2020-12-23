@@ -2,13 +2,15 @@
 # Cotangent Function
 
 # Returns the Cotangent of a number.
-fn Number (
+fn (
     # The number whose cotangent should be returned in radians.
     Number value
-) { 
-    Reciprocal(
-        Tan(value)
-    )
+): Number { 
+    return Reciprocal(
+        value=Tan(
+            value=value
+        )
+    );
 } -> [
     Test([1], 57.28996163)
 ]

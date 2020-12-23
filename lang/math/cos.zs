@@ -2,9 +2,13 @@
 # Cosine Function
 
 # Returns the Cosine of a number.
-fn Number (
+fn (
     # The number whose cosine should be returned in radians.
     Number value
-) { ctx.stdfunc.cos(value) } -> [
+): Number {
+    return ctx.stdfunc.cos(
+        value=value
+    );
+} -> [
     Test([.5], .8775825618903728)
 ]

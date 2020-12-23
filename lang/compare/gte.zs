@@ -7,7 +7,9 @@ fn Boolean (
     Text left,
     # Right hand expression to compare.
     Text right
-) { left > right || left == right } -> [
+) {
+    return left > right || left == right;
+} -> [
     Test([2, 1], true),
     Test([1, 2], false),
     Test([1, 1], true)

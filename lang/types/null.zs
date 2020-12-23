@@ -2,4 +2,6 @@
 # Null Function
 
 # Represent a null value.
-fn Null () { ctx.stdfunc.null() }
+fn (): Null {
+    return ctx.stdfunc.null();
+}

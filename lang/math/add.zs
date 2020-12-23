@@ -2,11 +2,16 @@
 # Add Function
 
 # Add two numbers.
-fn Number (
+fn (
     # Left number expression.
     Number left,
     # Right number expression.
     Number right
-) { ctx.stdfuns.math.add(left, right) } -> [
+): Number {
+    return ctx.stdfuns.math.add(
+        left=left,
+        right=right
+    );
+} -> [
     Test([1, 2], 3)
 ]

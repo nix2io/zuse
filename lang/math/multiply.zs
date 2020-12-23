@@ -2,11 +2,16 @@
 # Multiply Function
 
 # Multiply two numbers.
-fn Number (
+fn (
     # Left hand number expression.
     Number left,
     # Right hand number expression,
     Number right
-) { ctx.stdfunc.multiply(left, right) } -> [
+): Number {
+    return ctx.stdfunc.multiply(
+        left=left,
+        right=right
+    );
+} -> [
     Test([2, 3], 6)
 ]

@@ -2,9 +2,11 @@
 # Opposite Function
 
 # Return the opposite number.
-fn Number (
+fn (
     # Number to get the opposite.
     Number value
-) { value * -1 } -> [
+): Number {
+    return value * -1;
+} -> [
     Test([2], -2)
 ]

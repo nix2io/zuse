@@ -2,12 +2,17 @@
 # And Function
 
 # Returns true if both values are true.
-fn Boolean (
+fn (
     # Left hand boolean expression.
     Boolean left,
     # Right hand boolean expression.
     Boolean right
-) { ctx.stdfunc.and(left, right) } -> [
+): Boolean {
+    return ctx.stdfunc.and(
+        left=left,
+        right=right
+    );
+} -> [
     Test(arguments=[true, true], returns=true),
     Test(arguments=[true, false], returns=false),
     Test(arguments=[false, true], returns=false),

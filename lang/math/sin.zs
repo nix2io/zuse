@@ -2,9 +2,11 @@
 # Sine Function
 
 # Returns the Sine of a number.
-fn Number (
+fn (
     # The number whose sine should be returned in radians.
     Number value
-) { ctx.stdfunc.sin(value) } -> [
+): Number {
+    return ctx.stdfunc.sin(value);
+} -> [
     Test([.5], 0.479425538604203)
 ]

@@ -2,11 +2,16 @@
 # Power Function
 
 # Rases a number to a power.
-fn Number (
+fn (
     # Value to get raised.
     Number value,
     # Exponent to raise to.
     Number exp
-) { ctx.stdfunc.pow(value, exp) } -> [
+): Number {
+    return ctx.stdfunc.pow(
+        value=value,
+        exp=exp
+    );
+} -> [
     Test([3, 2], 9)
 ]
