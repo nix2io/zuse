@@ -2,7 +2,7 @@
 # For Function
 
 # For loop.
-fn Void (
+fn (
   # Initiation expression.
   Expression init,
   # End expression.
@@ -12,9 +12,9 @@ fn Void (
   # Body expression
   Expression body
 ) {
-  init()
-  while end {
-    body()
-    increment()
+  init();
+  while end() {
+    body();
+    increment();
   }
 }
