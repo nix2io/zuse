@@ -1,0 +1,29 @@
+name: Generate and Deploy Spec
+on:
+  push:
+    branches:
+      - main
+jobs:
+  docs:
+    name: Generate Specification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: yarn install
+        run: yarn --cwd ./scripts/mk-spec install
+      - name: Build
+        run: yarn --cwd ./scripts/mk-spec build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: spec # The branch the action should deploy to.
+          FOLDER: out # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
