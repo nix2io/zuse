@@ -10,7 +10,7 @@ fn (
     # Expression to be run if false.
     Any ifFalse
 ): Any {
-    return ctx.stdfunc.if(
+    return ctx.stdfunc._if(
         condition=condition,
         ifTrue=ifTrue,
         ifFalse=ifFalse

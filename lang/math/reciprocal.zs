@@ -8,6 +8,6 @@ fn (
 ): Number {
     return value ^ -1;
 } -> [
-    Test([2], .5),
-    Test([4], .25)
+    Test([2], 0.5),
+    Test([4], 0.25)
 ]

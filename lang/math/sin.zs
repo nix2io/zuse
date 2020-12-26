@@ -8,5 +8,5 @@ fn (
 ): Number {
     return ctx.stdfunc.sin(value);
 } -> [
-    Test([.5], 0.479425538604203)
+    Test([0.5], 0.479425538604203)
 ]

@@ -2,12 +2,12 @@
 # Greater than or equal to Function
 
 # Returns true if the left is greater than or equal to the right.
-fn Boolean (
+fn (
     # Left hand expression to compare.
     Text left,
     # Right hand expression to compare.
     Text right
-) {
+): Boolean {
     return left > right || left == right;
 } -> [
     Test([2, 1], true),
