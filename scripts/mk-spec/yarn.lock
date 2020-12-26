@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@nix2/zuse-stdsyntax@1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@nix2/zuse-stdsyntax/-/zuse-stdsyntax-1.0.6.tgz#6e346b68c351b3a05d1a919a6c58c59e40c87c3e"
-  integrity sha512-zyvRGr0KqQ2ehKoy3A+a+J+9Yqs6Q1t0vOUhvngcYj/COSCwUK7oaIC1BIGOWL742cR4OlarUcnYjO/tNmfntw==
+"@nix2/zuse-stdsyntax@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@nix2/zuse-stdsyntax/-/zuse-stdsyntax-1.0.7.tgz#b67a9fd9595f396ad2858b660f786dad0d0a95d7"
+  integrity sha512-W+z5U2L9mbH00gJtEx3bnDHdYXmD6aR4ck2XzkYxuTGJ4tfeoxlTWHu791pMMsH8XlhmwF0teswlJUzIO7XA7A==
 
 "@types/node@^14.14.16":
   version "14.14.16"
