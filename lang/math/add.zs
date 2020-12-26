@@ -8,7 +8,7 @@ fn (
     # Right number expression.
     Number right
 ): Number {
-    return ctx.stdfuns.math.add(
+    return ctx.stdfunc.add(
         left=left,
         right=right
     );
