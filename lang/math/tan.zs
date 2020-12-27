@@ -5,10 +5,6 @@
 fn (
     # The number whose tangent should be returned in radians.
     Number value
-): Number {
-    return ctx.stdfunc.tan(
-        value=value
-    );
-} -> [
+): Number {} -> [
     Test([0.5], 0.5463024898437905)
 ]

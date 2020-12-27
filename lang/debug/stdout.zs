@@ -5,8 +5,6 @@
 fn (
     # Value to print to stdout.
     Any value
-) {
-    ctx.stdout(value);
-} -> [
+) {} -> [
     Test(["hi there"], inLog="hi there")
 ]

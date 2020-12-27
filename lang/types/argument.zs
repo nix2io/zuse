@@ -11,6 +11,4 @@ fn (
     Any default,
     # Description of the argument.
     Text description
-): Argument {
-    return ctx.stdfunc.argument(name, type, default, description);
-}
+): Argument { }

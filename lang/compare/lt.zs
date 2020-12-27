@@ -7,12 +7,7 @@ fn (
     Text left,
     # Right hand expression to compare.
     Text right
-): Boolean {
-    return ctx.stdfunc.lt(
-        left=left,
-        right=right
-    );
-} -> [
+): Boolean {} -> [
     Test([1, 2], true),
     Test([2, 1], false),
     Test([1, 1], false)

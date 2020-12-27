@@ -5,6 +5,4 @@
 fn (
     # Value of the boolean.
     boolean value
-): Boolean {
-    return ctx.stdfunc.boolean(value);
-}
+): Boolean { }

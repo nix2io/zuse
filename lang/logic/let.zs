@@ -7,11 +7,6 @@ fn (
     Text name,
     # Variable value.
     Any value
-): Any {
-    return ctx.let(
-        name=name,
-        value=value
-    );
-} -> [
+): Any {} -> [
     Test(["foo", "bar"], "bar", createdSymbols=[["foo", "bar"]])
 ]

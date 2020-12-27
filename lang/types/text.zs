@@ -4,7 +4,5 @@
 # Represent text.
 fn (
     # Value of the text.
-    string Value
-): Number {
-    return ctx.stdfunc.text(value);
-}
+    string value
+): Number {}

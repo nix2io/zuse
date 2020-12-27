@@ -7,11 +7,6 @@ fn (
     Number value,
     # Exponent to raise to.
     Number exp
-): Number {
-    return ctx.stdfunc.pow(
-        value=value,
-        exp=exp
-    );
-} -> [
+): Number {} -> [
     Test([3, 2], 9)
 ]

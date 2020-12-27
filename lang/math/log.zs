@@ -7,12 +7,7 @@ fn (
     Number value,
     # Base number of the logarithm.
     Number base = 10
-): Number {
-    return ctx.stdfunc.log(
-        value=value,
-        base=base
-    );
-} -> [
+): Number {} -> [
     Test([100, 10], 2),
     Test([81, 3], 4)
 ]

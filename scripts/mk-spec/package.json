@@ -10,7 +10,7 @@
         "build": "ts-node ./src/index.ts"
     },
     "dependencies": {
-        "@nix2/zuse-stdsyntax": "^1.0.7",
+        "@nix2/zuse-stdsyntax": "^1.0.8",
         "yaml": "^1.10.0"
     },
     "devDependencies": {

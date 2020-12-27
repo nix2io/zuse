@@ -5,10 +5,6 @@
 fn (
     # Variable name.
     Text name
-): Any {
-    return ctx.var(
-        name=name
-    );
-} -> [
+): Any {} -> [
     Test(["foo_1"], "bar")
 ]

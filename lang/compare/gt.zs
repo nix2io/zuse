@@ -7,12 +7,7 @@ fn (
     Number left,
     # Right hand expression to compare.
     Number right
-): Boolean {
-    return ctx.stdfunc.gt(
-        left=left,
-        right=right
-    );
-} -> [
+): Boolean {} -> [
     Test([2, 1], true),
     Test([1, 2], false),
     Test([1, 1], false)

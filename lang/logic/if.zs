@@ -9,13 +9,7 @@ fn (
     Any ifTrue,
     # Expression to be run if false.
     Any ifFalse
-): Any {
-    return ctx.stdfunc._if(
-        condition=condition,
-        ifTrue=ifTrue,
-        ifFalse=ifFalse
-    );
-} -> [
+): Any {} -> [
     Test([true, "foo", "bar"], "foo"),
     Test([false, "foo", "bar"], "bar")
 ]

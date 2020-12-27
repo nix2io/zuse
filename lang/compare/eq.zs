@@ -7,12 +7,7 @@ fn (
     Any left,
     # Right hand expression to compare.
     Any right
-): Boolean {
-    return ctx.stdfunc.eq(
-        left=left,
-        right=right
-    );
-} -> [
+): Boolean {} -> [
     Test(["foo", "foo"], true),
     Test(["foo", "bar"], false)
 ]

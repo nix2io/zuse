@@ -5,6 +5,4 @@
 fn (
     # Contents of the array.
     _array value
-): ArrayOf(Any) {
-    return ctx.stdfunc.array(value);
-}
+): ArrayOf(Any) { }

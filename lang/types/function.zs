@@ -11,6 +11,4 @@ fn (
     Any logic,
     # Function description.
     Text description
-): Function {
-    return ctx.stdfunc.function(arguments, type, logic, description);
-}
+): Function {}

@@ -7,11 +7,6 @@ fn (
     Number left,
     # Right hand number expression,
     Number right
-): Number {
-    return ctx.stdfunc.multiply(
-        left=left,
-        right=right
-    );
-} -> [
+): Number {} -> [
     Test([2, 3], 6)
 ]

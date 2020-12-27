@@ -5,8 +5,6 @@
 fn (
     # The number whose sine should be returned in radians.
     Number value
-): Number {
-    return ctx.stdfunc.sin(value);
-} -> [
+): Number {} -> [
     Test([0.5], 0.479425538604203)
 ]
