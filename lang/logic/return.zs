@@ -3,6 +3,6 @@
 
 # Return a value from a function.
 fn (
-    # Node to return
-    Any node
+    # Value to return
+    Any value
 ): Any {}
