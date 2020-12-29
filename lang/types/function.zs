@@ -7,8 +7,8 @@ fn (
     ArrayOf(Argument) arguments,
     # Function return type.
     Type type,
-    # Function logic.
-    Any logic,
+    # Function body.
+    Any body,
     # Function description.
     Text description
 ): Function {}
