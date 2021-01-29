@@ -1,3 +1,8 @@
+# ⚠ ZUSE IS DEPRECIATED ⚠
+We are no longer working on this project as it would be slower and is not nessisary.
+
+<hr>
+
 <p align="center"><img height="220px" src="https://i.imgur.com/GXmliga.png" alt="Logo" /><p>
 
 <p align="center">
